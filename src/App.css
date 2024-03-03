@@ -317,3 +317,20 @@ form {
   transition: all 0.3s;
   margin-top: 0.5em;
 }
+
+.source {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.source__title {
+  font-size: 2rem;
+  margin: 0.5em 0;
+}
+
+.source__link {
+  margin: 0.5em 0;
+  padding: 1em;
+  text-align: left;
+}

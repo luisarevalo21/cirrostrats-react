@@ -6,6 +6,7 @@ import Home from "./pages/Home";
 import Guide from "./pages/Guide";
 import Story from "./pages/Story";
 import Contact from "./pages/Contact";
+import Source from "./pages/Source";
 import "./App.css";
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
         <Route path="/guide" element={<Guide />} />
         <Route path="/story" element={<Story />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/source" element={<Source />} />
         {/* <Route path="/about" element={<About />} />
         <Route path="/services" element={<Services />} />
         <Route path="/contact" element={<Contact />} /> */}
