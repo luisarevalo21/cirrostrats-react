@@ -162,6 +162,7 @@ form {
   font-size: 1rem;
   border: none;
   padding: 0.5em;
+  cursor: pointer;
 }
 .home__link {
   margin: 0.5em 0;
@@ -333,4 +334,133 @@ form {
   margin: 0.5em 0;
   padding: 1em;
   text-align: left;
+}
+
+/* details*/
+
+.details {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  margin: 0 auto;
+  width: 90%;
+  position: relative;
+}
+.details__title {
+  font-size: 2rem;
+  margin: 0.5em 0;
+  font-weight: bold;
+}
+
+.details__card,
+.card {
+  border-radius: 5px;
+  border: 1px solid black;
+}
+
+.details__card__title,
+.card__title {
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin: 0;
+  background: #2d333b;
+  color: #adbac7;
+  padding: 0.5em;
+}
+
+.detail__body {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5em 0.5em;
+}
+.detail__depature {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.detail__arrival {
+  display: flex;
+  flex-direction: column;
+  text-align: right;
+}
+.detail__depature__title,
+.detail__arrival__title {
+  font-size: 2rem;
+  margin-bottom: 0.9em;
+}
+
+.detail__gate,
+.detail__depature__time,
+.detail__arrival__time {
+  margin-bottom: 0.8em;
+  font-size: 1.2rem;
+}
+
+.detail__gate__title {
+  font-size: 1rem;
+}
+.detail__depature__local,
+.detail__arrival__local,
+.detail__depature__utc,
+.detail__arrival__utc {
+  font-size: 0.8rem;
+  margin-bottom: 0.5em;
+}
+
+.utc__container {
+  background-color: #5b6166;
+  border-radius: 5px;
+  padding: 0.9em 0.5em;
+  font-size: 0.8em;
+  color: white;
+  font-weight: bold;
+  display: flex;
+  justify-content: end;
+  position: absolute;
+  top: 0;
+  right: 0;
+  opacity: 0.7;
+}
+
+/* card*/
+.card {
+  margin: 0.8em 0;
+}
+.card__title {
+  text-transform: capitalize;
+  font-size: 1.3rem;
+  display: flex;
+  justify-content: center;
+  padding: 0.8em 0;
+  align-items: center;
+}
+
+.card__icon {
+  font-size: 1rem;
+  margin-right: 0.3em;
+}
+.card__depature__title {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.7em 0.5em;
+  border-bottom: 1px solid #333537;
+  font-weight: bold;
+}
+.card__depature__subtitle {
+  border-bottom: 1px solid #333537;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.7em 0;
+}
+
+.card__depature__subtitle__title {
+  margin-right: 0.5em;
+  font-size: 1.3rem;
+}
+
+.card__depature__details {
+  border-bottom: 1px solid #333537;
+  padding: 0.8em 1em;
 }
