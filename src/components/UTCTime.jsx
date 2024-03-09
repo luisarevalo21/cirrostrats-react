@@ -16,8 +16,7 @@ const UTCTime = () => {
 
     const intervalId = setInterval(updateFormattedDate, 60000);
 
-    return;
-    () => clearInterval(intervalId);
+    return () => clearInterval(intervalId);
   }, []);
 
   return (

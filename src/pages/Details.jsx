@@ -7,7 +7,6 @@ const Details = ({ title }) => {
     <div className="details">
       <h2 className="details__title">United Flight Information</h2>
 
-      <UTCTime />
       {/* <div className="detail">
         <h3>▼ {title}</h3>
       </div> */}
@@ -54,6 +53,12 @@ const Details = ({ title }) => {
         </div>
       </div>
       <Card arrow={true} title="depature" />
+      <Card
+        routeCard={true}
+        title="Route"
+        text="(FL360) LANNA J48 CSN FANPO Q40 AEX DOOBI2"
+        link="https://skyvector.com/?fpl=%20KEWR%20LANNA%20J48%20CSN%20FANPO%20Q40%20AEX%20DOOBI2%20KIAH"
+      />
       <Card arrow={true} title="arrival" />
     </div>
   );

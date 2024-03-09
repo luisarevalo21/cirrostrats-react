@@ -1,14 +1,43 @@
-import React from "react";
+import React, { useState } from "react";
+import { NavLink } from "react-router-dom";
+const Card = ({ arrow, title, routeCard, text }) => {
+  const [toggleCard, setToggleCard] = useState(false);
 
-const Card = ({ arrow, title }) => {
+  const handleToggleCard = () => {
+    setToggleCard(prev => !prev);
+  };
+
+  if (routeCard)
+    return (
+      <div className="card">
+        <h3 className="card__title">
+          <span className="card__icon"> {arrow ? "▼" : null} </span>
+          {title}
+
+          <NavLink
+            to="https://skyvector.com/?fpl=%20KEWR%20LANNA%20J48%20CSN%20FANPO%20Q40%20AEX%20DOOBI2%20KIAH"
+            className="card__route__link"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Show on SkyVector Map
+          </NavLink>
+        </h3>
+        <div className="card__route">
+          <div className="card__route__text">{text}</div>
+        </div>
+      </div>
+    );
+
   return (
     <div className="card">
-      <h3 className="card__title">
+      <h3 className="card__title" onClick={handleToggleCard}>
         <span className="card__icon"> {arrow ? "▼" : null} </span>
         {title}
       </h3>
 
-      <div className="card__body">
+      <div className={toggleCard ? null : "card__body"}>
+        {/* // user the incoming depature or arrival text to change the styling  as well  */}
         <div className="card__depature__title">
           <p className="card__depature__time">05:40 EST</p>
           <h3>KEWR</h3>

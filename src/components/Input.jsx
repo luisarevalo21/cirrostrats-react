@@ -1,14 +1,19 @@
 import React from "react";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Input = () => {
   const [searchValue, setSearchValue] = useState("");
+  const navigate = useNavigate();
   const handleChange = e => {
     e.preventDefault();
     setSearchValue(e.target.value);
   };
   const handleSubmit = e => {
     e.preventDefault();
+    console.log(searchValue);
+    //pass the seach value here, details will fetch the data from api and render it
+    navigate("/details");
   };
 
   return (
