@@ -77,6 +77,12 @@ html {
   /* animation: slide-out ease-in-out 0.5s; */
   transform: translateX(100%);
 }
+
+.active {
+  color: #adbac7;
+  text-decoration: underline;
+}
+
 /* @keyframes slide-in {
   0% {
     transform: translateX(100%);
@@ -532,4 +538,32 @@ form {
   text-align: left;
   color: #ffffff;
   padding: 0.8em;
+}
+
+@media (min-width: 500px) {
+  .navbar__menu {
+    display: none;
+  }
+
+  .navbar__nav {
+    display: flex;
+    flex-direction: row;
+    color: white;
+    position: static;
+    width: 100%;
+    z-index: 0;
+    transform: translateX(0);
+    background: none;
+  }
+  .navbar__list {
+    margin-left: auto;
+    flex-direction: row;
+  }
+  .navbar__list__item {
+    margin: 0 1em;
+  }
+  .navbar__list__item :hover {
+    color: #adbac7;
+    text-decoration: underline;
+  }
 }

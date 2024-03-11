@@ -5,7 +5,15 @@ const Navbar = () => {
   return (
     <div className="navbar">
       <h2>
-        <NavLink to="/" className="navbar__title" onClick={() => setShowLinks(false)}>
+        <NavLink
+          to="/"
+          className="navbar__title"
+          style={isActive => ({
+            color: isActive ? "white" : "black",
+            textDecoration: "none",
+          })}
+          onClick={() => setShowLinks(false)}
+        >
           Cirrostrats
         </NavLink>
       </h2>
@@ -17,32 +25,56 @@ const Navbar = () => {
       <nav className={`navbar__nav ${showLinks ? "open" : "closed"}`}>
         <ul className="navbar__list">
           <li className="navbar__list__item">
-            <NavLink to="/" className="navbar__list__item__link" onClick={() => setShowLinks(prev => !prev)}>
+            <NavLink
+              to="/"
+              className={({ isActive }) => (isActive ? "active" : "navbar__list__item__link")}
+              onClick={() => setShowLinks(prev => !prev)}
+            >
               Search
             </NavLink>
           </li>
           <li className="navbar__list__item">
-            <NavLink to="story" className="navbar__list__item__link" onClick={() => setShowLinks(prev => !prev)}>
+            <NavLink
+              to="story"
+              className={({ isActive }) => (isActive ? "active" : "navbar__list__item__link")}
+              onClick={() => setShowLinks(prev => !prev)}
+            >
               Our Story
             </NavLink>
           </li>
           <li className="navbar__list__item">
-            <NavLink to="contact" className="navbar__list__item__link" onClick={() => setShowLinks(prev => !prev)}>
+            <NavLink
+              to="contact"
+              className={({ isActive }) => (isActive ? "active" : "navbar__list__item__link")}
+              onClick={() => setShowLinks(prev => !prev)}
+            >
               Contact Us
             </NavLink>
           </li>
           <li className="navbar__list__item">
-            <NavLink to="source" className="navbar__list__item__link" onClick={() => setShowLinks(prev => !prev)}>
+            <NavLink
+              to="source"
+              className={({ isActive }) => (isActive ? "active" : "navbar__list__item__link")}
+              onClick={() => setShowLinks(prev => !prev)}
+            >
               Source
             </NavLink>
           </li>
           <li className="navbar__list__item">
-            <NavLink to="guide" className="navbar__list__item__link" onClick={() => setShowLinks(prev => !prev)}>
+            <NavLink
+              to="guide"
+              className={({ isActive }) => (isActive ? "active" : "navbar__list__item__link")}
+              onClick={() => setShowLinks(prev => !prev)}
+            >
               Guide
             </NavLink>
           </li>
           <li className="navbar__list__item">
-            <NavLink to="report" className="navbar__list__item__link" onClick={() => setShowLinks(prev => !prev)}>
+            <NavLink
+              to="report"
+              className={({ isActive }) => (isActive ? "navbar__list__item__link active" : "navbar__list__item__link")}
+              onClick={() => setShowLinks(prev => !prev)}
+            >
               Report
             </NavLink>
           </li>
