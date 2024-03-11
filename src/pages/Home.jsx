@@ -1,15 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
+import Input from "../components/Input";
 const Home = () => {
   return (
     <div className="home">
       <h2 className="home__title">Cirrostrats </h2>
 
-      <form action="">
-        <label htmlFor="Check weather, gate and flight information"></label>
-        <input type="text" className="home__input" />
-        <button className="home__search"> Search</button>
-      </form>
+      <Input />
 
       <NavLink to="/guide" className="home__link">
         Guide
