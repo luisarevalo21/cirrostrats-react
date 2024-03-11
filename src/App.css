@@ -483,3 +483,53 @@ form {
   margin-left: 0.5em;
   font-size: 1rem;
 }
+
+/* table*/
+.table__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  width: 100%;
+  margin-top: 2em;
+}
+.table__title {
+  font-size: 2rem;
+  margin: 0.5em 0;
+  font-weight: bold;
+}
+.table {
+  width: 90%;
+  border-collapse: collapse;
+  margin: 0 auto;
+  margin-top: 1em;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 0 0 2px #474350;
+  color: #ffffff;
+  background: #2d333b;
+}
+
+.table__header {
+  background-color: #2d333b;
+  color: white;
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+.table__header th {
+  padding: 0.5em;
+  text-align: left;
+}
+
+.table tr:nth-child(odd) td {
+  background-color: #ffffff;
+  color: black;
+  padding: 0.8em;
+  text-align: left;
+}
+.table tr:nth-child(even) td {
+  text-align: left;
+  color: #ffffff;
+  padding: 0.8em;
+}
