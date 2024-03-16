@@ -18,6 +18,7 @@ function App() {
     async function fetchData() {
       const res = await axios.get("http://127.0.0.1:8000/api/flights/");
       console.log("res", res);
+
       if (!res.status === 200) {
         console.log("Error");
         throw new Error("network error occured");
