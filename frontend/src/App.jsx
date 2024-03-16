@@ -1,7 +1,5 @@
-import { useState, useEffect } from "react";
-import axios from "axios";
 import "./App.css";
-import { Routes, Route, useFetcher } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
 import Guide from "./pages/Guide";
@@ -14,22 +12,6 @@ import Table from "./components/Table";
 import "./App.css";
 
 function App() {
-  useEffect(() => {
-    async function fetchData() {
-      const res = await axios.get("http://127.0.0.1:8000/api/flights/");
-      console.log("res", res);
-
-      if (!res.status === 200) {
-        console.log("Error");
-        throw new Error("network error occured");
-      }
-
-      const data = res.data;
-      console.log("data", data);
-    }
-    fetchData();
-  }, []);
-
   return (
     <div className="App">
       <Navbar />
