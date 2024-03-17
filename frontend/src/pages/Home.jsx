@@ -6,7 +6,7 @@ const Home = () => {
   const [data, setData] = useState([]);
   useEffect(() => {
     async function fetchData() {
-      const res = await axios.get("http://127.0.0.1:8000/");
+      const res = await axios.get("http://127.0.0.1:8000/flight");
       console.log("res", res);
 
       if (!res.status === 200) {
@@ -29,8 +29,11 @@ const Home = () => {
           {Object.entries(data).map(([key, value]) => (
             <li key={key}>
               <strong>{key}:</strong>
-              {typeof value === 'object' && value !== null ? (
-              <pre>{JSON.stringify(value, null, 2)}</pre>): <span>{String(value)}</span>}
+              {typeof value === "object" && value !== null ? (
+                <pre>{JSON.stringify(value, null, 2)}</pre>
+              ) : (
+                <span>{String(value)}</span>
+              )}
             </li>
           ))}
         </ul>
