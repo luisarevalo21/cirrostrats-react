@@ -1,2 +1,8 @@
 todo-example
 backend
+
+
+# Uj local
+/fast-api/venv
+/fast-api/__pycache__
+/fast-api/win_local.bat
