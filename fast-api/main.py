@@ -1,7 +1,7 @@
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
-
+import pickle
 
 app = FastAPI()
 
@@ -58,3 +58,13 @@ async def get_item(item_id: int) -> Item:
     else:
         raise HTTPException(status_code=404, detail=f"Item {
                             item_id} not found")
+
+
+@app.get("/flight")
+def get_flight():
+
+    # Loading the dummy data here. This is a deeply nested dictionary that gets fed into front end as a JSON deeply nested Object
+    with open("latest_bulk_11_30.pkl", 'rb') as f:
+        bulk_flight_deets = pickle.load(f)
+
+    return bulk_flight_deets
