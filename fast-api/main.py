@@ -1,7 +1,16 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
+from pydantic import BaseModel
+
 
 app = FastAPI()
+
+
+class Item(BaseModel):
+    text: str
+    is_done: bool = False
+
+
 origins = [
     "http://localhost:5173"
 ]
@@ -13,7 +22,10 @@ app.add_middleware(
     # allow_headers=["*"],
 )
 
-items = ['apples', 'oranges']
+# items = ['apples', 'oranges', 'pears', 'grapes', 'bananas',
+#          'mangoes', 'kiwi', 'watermelon', 'strawberry', 'blueberry', 'raspberry', 'blackberry', 'pineapple', 'papaya',]
+
+items = []
 
 
 @app.get("/")
@@ -22,9 +34,16 @@ def root():
 
 
 @app.post('/items')
-async def create_item(item: str):
+async def create_item(item: Item):
     items.append(item)
     return items
+
+# returns a defined item class
+
+
+@app.get('/items', response_model=list[Item])
+def list_items(limit: int = 10):
+    return items[0:limit]
 
 
 @app.get('/items')
@@ -32,7 +51,10 @@ async def get_item():
     return items
 
 
-@app.get('/items/{item_id}')
-async def get_item(item_id: int) -> str:
-    item = items[item_id]
-    return item
+@app.get('/items/{item_id}', response_model=Item)
+async def get_item(item_id: int) -> Item:
+    if item_id < len(items):
+        return items[item_id]
+    else:
+        raise HTTPException(status_code=404, detail=f"Item {
+                            item_id} not found")
