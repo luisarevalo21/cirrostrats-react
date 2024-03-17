@@ -1,5 +1,6 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+import pickle
 
 app = FastAPI()
 origins = [
@@ -13,26 +14,11 @@ app.add_middleware(
     # allow_headers=["*"],
 )
 
-items = ['apples', 'oranges']
-
-
 @app.get("/")
 def root():
-    return {'hello ': 'world'}
-
-
-@app.post('/items')
-async def create_item(item: str):
-    items.append(item)
-    return items
-
-
-@app.get('/items')
-async def get_item():
-    return items
-
-
-@app.get('/items/{item_id}')
-async def get_item(item_id: int) -> str:
-    item = items[item_id]
-    return item
+    
+    # Loading the dummy data here. This is a deeply nested dictionary that gets fed into front end as a JSON deeply nested Object
+    with open("latest_bulk_11_30.pkl", 'rb') as f:
+        bulk_flight_deets = pickle.load(f)
+    
+    return bulk_flight_deets
