@@ -1,0 +1,15 @@
+# POST  http://127.0.0.1:8000/items 
+# content-type: application/json
+
+# {"text": "bananas"}
+
+# 
+# # GET  http://127.0.0.1:8000/items/0 
+# Post  http://127.0.0.1:8000/todos
+# content-type: application/json
+
+# {"item": "mow the lawn", "id": 1}
+
+# GET  http://127.0.0.1:8000/todos/1
+
+# DELETE  http://127.0.0.1:8000/todos/1

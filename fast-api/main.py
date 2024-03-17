@@ -1,8 +1,10 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 import pickle
 
 app = FastAPI()
+
+
 origins = [
     "http://localhost:5173"
 ]
