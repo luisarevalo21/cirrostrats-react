@@ -6,7 +6,15 @@ const Home = () => {
   const [data, setData] = useState([]);
   useEffect(() => {
     async function fetchData() {
-      const res = await axios.get("http://127.0.0.1:8000/flight");
+      // these are all the endpoints:
+      // "/dep_dest"
+      // "/scheduled_times"
+      // "/gates"
+      // "/dep_weather"
+      // "/nas_departure_affected"
+      // "/dest_weather"
+      // "/flight_aware_data"
+      const res = await axios.get("http://127.0.0.1:8000/us-airports"); //replace dep_dest with above endpoints as needed
       console.log("res", res);
 
       if (!res.status === 200) {
