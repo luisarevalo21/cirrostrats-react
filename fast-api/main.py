@@ -20,16 +20,36 @@ app.add_middleware(
 def root():
     
     # Loading the dummy data here. This is a deeply nested dictionary that gets fed into front end as a JSON deeply nested Object
-    with open("latest_bulk_11_30.pkl", 'rb') as f:
+    with open("dummy_flight_deet.pkl", 'rb') as f:
         bulk_flight_deets = pickle.load(f)
     
     return bulk_flight_deets
+
+@app.get("/us-airports")
+def all_airports():
+    
+    # Loading the dummy data here. This is a deeply nested dictionary that gets fed into front end as a JSON deeply nested Object
+    with open("all_US_airports_dict.pkl", 'rb') as f:
+        airports = pickle.load(f)
+    
+    return airports
+
+@app.get("/gate-info")
+def all_airports():
+    
+    # Loading the dummy data here. This is a deeply nested dictionary that gets fed into front end as a JSON deeply nested Object
+    with open("gate_info_data.pkl", 'rb') as f:
+        gate_info = pickle.load(f)
+        # print(gate_info.keys())
+        # gate_info = gate_info.keys()
+    
+    return gate_info
 
 
 @app.get("/dep_dest")
 def root():
     
-    with open("latest_bulk_11_30.pkl", 'rb') as f:
+    with open("dummy_flight_deet.pkl", 'rb') as f:
         bulk_flight_deets = pickle.load(f)
     
     return {'departure_ID':bulk_flight_deets['departure_ID'], 'destination_ID': bulk_flight_deets['destination_ID']}
@@ -37,7 +57,7 @@ def root():
 @app.get("/scheduled_times")
 def root():
     
-    with open("latest_bulk_11_30.pkl", 'rb') as f:
+    with open("dummy_flight_deet.pkl", 'rb') as f:
         bulk_flight_deets = pickle.load(f)
     
     return {"scheduled_departure_time": bulk_flight_deets["scheduled_departure_time"],
@@ -46,7 +66,7 @@ def root():
 @app.get("/gates")
 def root():
     
-    with open("latest_bulk_11_30.pkl", 'rb') as f:
+    with open("dummy_flight_deet.pkl", 'rb') as f:
         bulk_flight_deets = pickle.load(f)
 
     return {"departure_gate": bulk_flight_deets["departure_gate"],
@@ -55,7 +75,7 @@ def root():
 @app.get("/dep_weather")
 def root():
     
-    with open("latest_bulk_11_30.pkl", 'rb') as f:
+    with open("dummy_flight_deet.pkl", 'rb') as f:
         bulk_flight_deets = pickle.load(f)
     dep_weather = bulk_flight_deets[dep_weather]
     return dep_weather
@@ -63,7 +83,7 @@ def root():
 @app.get("/nas_departure_affected")
 def root():
     
-    with open("latest_bulk_11_30.pkl", 'rb') as f:
+    with open("dummy_flight_deet.pkl", 'rb') as f:
         bulk_flight_deets = pickle.load(f)
     nas_departure_affected = bulk_flight_deets['nas_departure_affected']
     return nas_departure_affected
@@ -71,7 +91,7 @@ def root():
 @app.get("/dest_weather")
 def root():
     
-    with open("latest_bulk_11_30.pkl", 'rb') as f:
+    with open("dummy_flight_deet.pkl", 'rb') as f:
         bulk_flight_deets = pickle.load(f)
     dest_weather = bulk_flight_deets['dest_weather']
     return dest_weather
@@ -79,7 +99,7 @@ def root():
 @app.get("/flight_aware_data")
 def root():
     
-    with open("latest_bulk_11_30.pkl", 'rb') as f:
+    with open("dummy_flight_deet.pkl", 'rb') as f:
         bulk_flight_deets = pickle.load(f)
 
     flight_aware_data = {"origin": bulk_flight_deets["origin"], 

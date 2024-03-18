@@ -14,7 +14,7 @@ const Home = () => {
           // "/nas_departure_affected"
           // "/dest_weather"
           // "/flight_aware_data"  
-      const res = await axios.get("http://127.0.0.1:8000/dep_dest");    //replace dep_dest with above endpoints as needed
+      const res = await axios.get("http://127.0.0.1:8000/us-airports");    //replace dep_dest with above endpoints as needed
       console.log("res", res);
 
       if (!res.status === 200) {
