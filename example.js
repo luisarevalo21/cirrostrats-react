@@ -112,6 +112,7 @@ const data = {
   filed_ete: 5820,
   flight_number: "UA6095",
   origin: "KMEM",
+  //could add the airport name? and airport destination
   registration: "N920FJ",
   route: "CHLDR5 ANSWA LIT J180 SWB ZEEKK2",
   sv: "https://skyvector.com/?fpl=%20KMEM%20CHLDR5%20ANSWA%20LIT%20J180%20SWB%20ZEEKK2%20KIAH",
