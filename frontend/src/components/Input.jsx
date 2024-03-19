@@ -11,9 +11,9 @@ const Input = () => {
   };
   const handleSubmit = e => {
     e.preventDefault();
-    console.log(searchValue);
+    console.log("search value", searchValue);
     //pass the seach value here, details will fetch the data from api and render it
-    navigate("/details");
+    navigate("/details", { state: { searchValue } });
   };
 
   return (

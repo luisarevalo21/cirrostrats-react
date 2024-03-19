@@ -1,16 +1,35 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
+import axios from "axios";
 import Card from "../components/Card";
-import UTCTime from "../components/UTCTime";
+import DetailCard from "../components/Cards/DetailCard";
 
-const Details = ({ title }) => {
+const Details = ({}) => {
+  const [flightData, setFlightData] = useState([]);
+  const location = useLocation();
+  const searchValue = location?.state?.searchValue;
+  useEffect(() => {
+    async function fetchData() {
+      const res = await axios.get(`http://127.0.0.1:8000/flight/${searchValue}`); //replace dep_dest with above endpoints as needed
+
+      if (!res.status === 200) {
+        console.log("Error");
+        throw new Error("network error occured");
+      }
+
+      setFlightData(res.data);
+    }
+    if (searchValue) fetchData();
+  }, [searchValue]);
+
   return (
     <div className="details">
-      <h2 className="details__title">United Flight Information</h2>
+      {/* <h2 className="details__title">United Flight Information</h2> */}
 
       {/* <div className="detail">
         <h3>▼ {title}</h3>
       </div> */}
-
+      {/* 
       <div className="details__card">
         <h3 className="details__card__title">UA492 N37502</h3>
 
@@ -51,8 +70,11 @@ const Details = ({ title }) => {
             </div>
           </div>
         </div>
-      </div>
-      <Card arrow={true} title="depature" />
+      </div> */}
+
+      {/* <Card arrow={false} detailCard={true} flightDetail={flightData} /> */}
+      {flightData && <DetailCard flightDetails={flightData} />}
+      <Card arrow={true} title="depature" flightDetails={flightData} />
       <Card
         routeCard={true}
         title="Route"
