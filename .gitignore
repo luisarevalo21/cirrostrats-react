@@ -1,6 +1,14 @@
 todo-example
 backend
 
+/mongodb-with-fastapi
+
+#luis local
+/fast-api/venv
+/fast-api/__pycache__/main.cpython-38.pyc
+
+# /fast-api/__pycache__
+
 
 # Uj local
 /fast-api/venv
