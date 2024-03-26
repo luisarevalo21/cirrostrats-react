@@ -1,34 +1,11 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
+import React from "react";
 import { NavLink } from "react-router-dom";
 import Input from "../components/Input";
+
 const Home = () => {
-  const [data, setData] = useState([]);
-  useEffect(() => {
-    async function fetchData() {
-      const res = await axios.get("http://127.0.0.1:8000/items");
-      console.log("res", res);
-
-      if (!res.status === 200) {
-        console.log("Error");
-        throw new Error("network error occured");
-      }
-
-      setData(res.data);
-    }
-    fetchData();
-  }, []);
-
   return (
     <div className="home">
       <h2 className="home__title">Cirrostrats </h2>
-
-      <div className="data">
-        <h1>DATA FETCHED</h1>
-        {data.map(item => (
-          <li key={item}>{item}</li>
-        ))}
-      </div>
 
       <Input />
 

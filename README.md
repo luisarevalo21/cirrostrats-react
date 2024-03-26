@@ -29,8 +29,7 @@ To run the project, follow the steps below:
    e. **Install Required Packages:**
 
    ```bash
-   pip install fastapi
-   pip install 'uvicorn[standard]'
+   pip install -r requirements.txt
    ```
 
    f. **Run the Server:**

@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 const Card = ({ arrow, title, routeCard, text }) => {
   const [toggleCard, setToggleCard] = useState(false);
 
-  const handleToggleCard = () => {
+  const handleToggleCard = ({ flightDetails }) => {
     setToggleCard(prev => !prev);
   };
 
