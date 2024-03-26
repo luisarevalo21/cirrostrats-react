@@ -4,16 +4,17 @@ import axios from "axios";
 import Card from "../components/Card";
 import DetailCard from "../components/Cards/DetailCard";
 
-const Details = ({}) => {
+const Details = () => {
   const [flightData, setFlightData] = useState([]);
   const location = useLocation();
   const searchValue = location?.state?.searchValue;
   useEffect(() => {
     async function fetchData() {
-      const res = await axios.get(`http://127.0.0.1:8000/flight/${searchValue}`); //replace dep_dest with above endpoints as needed
+      const airportId = searchValue.id;
+      console.log("airpoidId", searchValue);
+      const res = await axios.get(`http://127.0.0.1:8000/airports/${airportId}`); //replace dep_dest with above endpoints as needed
 
       if (!res.status === 200) {
-        console.log("Error");
         throw new Error("network error occured");
       }
 

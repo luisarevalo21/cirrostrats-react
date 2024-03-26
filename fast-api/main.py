@@ -2,31 +2,37 @@ from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 import pickle
+import routes.route as route
 
 app = FastAPI()
 
+app.include_router(route.router)
 
 origins = [
     "http://localhost:5173"
 ]
+
+
 app.add_middleware(
     CORSMiddleware,
     allow_origins=origins,
-    # allow_credentials=True,
-    # allow_methods=["*"],
-    # allow_headers=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+
 )
-
-# items = ['apples', 'oranges', 'pears', 'grapes', 'bananas',
-#          'mangoes', 'kiwi', 'watermelon', 'strawberry', 'blueberry', 'raspberry', 'blackberry', 'pineapple', 'papaya',]
-
-items = []
 
 
 # @app.post('/items')
 # async def create_item(item: Item):
 #     items.append(item)
 #     return items
+
+# @app.get('/us-airports')
+# async def us_airports():
+#     response = await get_airports()
+#     return response
+
 
 # returns a defined item class
 
@@ -53,44 +59,46 @@ items = []
 # @app.get("/flight")
 # def get_flight():
 
-@app.get("/")
-def get_flight_details():
-    # Loading the dummy data here. This is a deeply nested dictionary that gets fed into front end as a JSON deeply nested Object
-    with open("dummy_flight_deet.pkl", 'rb') as f:
-        bulk_flight_deets = pickle.load(f)
 
-    return bulk_flight_deets
+# @app.get("/")
+# def get_flight_details():
+#     # Loading the dummy data here. This is a deeply nested dictionary that gets fed into front end as a JSON deeply nested Object
+#     # with open("dummy_flight_deet.pkl", 'rb') as f:
+#     #     bulk_flight_deets = pickle.load(f)
 
-
-@app.get("/flight/{flight_id}")
-def get_flight(flight_id):
-    # Loading the dummy data here. This is a deeply nested dictionary that gets fed into front end as a JSON deeply nested Object
-    with open("dummy_flight_deet.pkl", 'rb') as f:
-        bulk_flight_deets = pickle.load(f)
-
-    return bulk_flight_deets
+#     # return bulk_flight_deets
 
 
-@app.get("/us-airports")
-def all_airports():
+# @app.get("/flight/{flight_id}")
+# def get_flight(flight_id):
+#     # Loading the dummy data here. This is a deeply nested dictionary that gets fed into front end as a JSON deeply nested Object
+#     with open("dummy_flight_deet.pkl", 'rb') as f:
+#         bulk_flight_deets = pickle.load(f)
 
-    # Loading the dummy data here. This is a deeply nested dictionary that gets fed into front end as a JSON deeply nested Object
-    with open("all_US_airports_dict.pkl", 'rb') as f:
-        airports = pickle.load(f)
-
-    return airports
+#     return bulk_flight_deets
 
 
-@app.get("/gate-info")
-def all_airports():
+# @app.get("/us-airports")
+# def all_airports():
 
-    # Loading the dummy data here. This is a deeply nested dictionary that gets fed into front end as a JSON deeply nested Object
-    with open("gate_info_data.pkl", 'rb') as f:
-        gate_info = pickle.load(f)
-        # print(gate_info.keys())
-        # gate_info = gate_info.keys()
+#     print("Getting all US airports")
+#     # Loading the dummy data here. This is a deeply nested dictionary that gets fed into front end as a JSON deeply nested Object
+#     with open("all_US_airports_dict.pkl", 'rb') as f:
+#         airports = pickle.load(f)
 
-    return gate_info
+#     return airports
+
+
+# @app.get("/gate-info")
+# def all_airports():
+
+#     # Loading the dummy data here. This is a deeply nested dictionary that gets fed into front end as a JSON deeply nested Object
+#     with open("gate_info_data.pkl", 'rb') as f:
+#         gate_info = pickle.load(f)
+#         # print(gate_info.keys())
+#         # gate_info = gate_info.keys()
+
+#     return gate_info
 
 
 # @app.get("/dep_dest")

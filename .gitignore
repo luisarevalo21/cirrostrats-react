@@ -1,8 +1,11 @@
 todo-example
 backend
 
-/mongodb-with-fastapi
+/fastapi-mongo
+/farmstack-project
 
+
+.env
 #luis local
 /fast-api/venv
 /fast-api/__pycache__/main.cpython-38.pyc

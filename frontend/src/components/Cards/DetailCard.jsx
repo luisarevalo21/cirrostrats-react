@@ -14,8 +14,8 @@ const DetailCard = ({ flightDetails }) => {
   } = flightDetails;
   return (
     <div className="details__card">
-      <h2 className="details__title">United Flight Information</h2>
-      <h3 className="details__card__title">{flight_number}</h3>
+      {/* <h2 className="details__title">United Flight Information</h2> */}
+      <h3 className="details__card__title">United Flight Information{flight_number}</h3>
 
       <div className="detail__body">
         <div className="detail__depature">

@@ -117,3 +117,12 @@ const data = {
   route: "CHLDR5 ANSWA LIT J180 SWB ZEEKK2",
   sv: "https://skyvector.com/?fpl=%20KMEM%20CHLDR5%20ANSWA%20LIT%20J180%20SWB%20ZEEKK2%20KIAH",
 };
+
+const obj = {
+  title: "Post 1",
+  body: "Body of post.",
+  category: "News",
+  likes: 3,
+  tags: ["news", "events"],
+  date: Date(),
+};
